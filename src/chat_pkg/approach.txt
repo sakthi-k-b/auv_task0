@@ -1,0 +1,30 @@
+Task: ROS Chat System Between Jolyne and Joestar
+
+Approach:
+- Created a new ROS package named `chat_pkg` using `catkin_create_pkg chat_pkg std_msgs rospy`.
+- Implemented two Python scripts:
+    - `jolyne.py` as a ROS publisher node that reads user input from the terminal and publishes it to the `/chat` topic.
+    - `joestar.py` as a ROS subscriber node that listens to the `/chat` topic and prints any incoming messages.
+- Both nodes are in the same package and use the standard `std_msgs/String` message type.
+- The communication is synchronous through the shared topic `/chat`.
+
+Tools/Technologies Used:
+- ROS Noetic on Ubuntu 20.04
+- Python 3
+- VS Code as the code editor
+- Git & GitHub for version control
+
+Challenges Faced:
+- Remembering to make the scripts executable using `chmod +x`.
+- Ensuring both nodes are using the correct topic and message types.
+- Managing multiple terminals: one for `roscore`, one for the subscriber, and one for the publisher.
+
+Testing:
+- Ran `roscore` in one terminal.
+- Ran `joestar.py` subscriber in the second terminal.
+- Ran `jolyne.py` publisher in the third terminal.
+- Verified that messages typed by Jolyne appeared in Joestar's terminal.
+
+Conclusion:
+This setup simulates a basic chat system between two people using ROS nodes and topics, showing the power of ROS communication architecture.
+
